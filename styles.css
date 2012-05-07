@@ -27,3 +27,11 @@ h2 {
 #what h1 {
     margin-top: 175px;
 }
+
+#nothing-similar h1, #similar h1 {
+    margin-top: 175px;
+}
+
+#similar img {
+    margin: 75px 35px;
+}
