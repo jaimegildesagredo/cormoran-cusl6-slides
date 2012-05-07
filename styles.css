@@ -32,12 +32,12 @@ h2 {
     margin-top: 75px;
 }
 
-#about-me h1, #what h1, #nothing-similar h1, #similar h1, #why h1, #how h1, #coding h1{
+#about-me h1, #what h1, #nothing-like-this h1, #like-this h1, #why h1, #how h1, #coding h1{
     margin-top: 175px;
 }
 
-#similar img {
-    margin: 75px 35px;
+#like-this {
+    text-align: center;
 }
 
 .highlight {
