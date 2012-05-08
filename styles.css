@@ -29,10 +29,14 @@ h2 {
 }
 
 #home h3 {
-    margin-top: 75px;
+    margin-top: 45px;
 }
 
-#about-me h1, #what h1, #nothing-like-this h1, #like-this h1, #why h1, #how h1, #coding h1{
+.about-me {
+    font-size: 45px;
+}
+
+#what h1, #nothing-like-this h1, #like-this h1, #why h1, #how h1, #coding h1{
     margin-top: 175px;
 }
 
