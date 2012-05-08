@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cormoran - #cusl6</title>
+
+        <meta name="author" content="Jaime Gil de Sagredo Luna" />
+        <meta name="description" content="Cormoran framework presentation for the #cusl6"/>
+
+        <link href="impress.css" rel="stylesheet" type="text/css"/>
+        <link href="styles.css" rel="stylesheet" type="text/css"/>
+        <link href="pygments.css" rel="stylesheet" type="text/css"/>
+    </head>
+
+    <body class="impress-not-supported">
+        <div class="fallback-message">
+            <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+            <p>For the best experience please use the latest <b>Chrome</b> or <b>Safari</b> browser. Firefox 10 (to be released soon) will also handle it.</p>
+        </div>
+
+        <div id="impress">
+            <div id="home" class="step slide">
+                <h1>
+                    <a href="http://cormoran-project.blogspot.com" title="Cormoran">
+                        <img src="images/cormoran.png" alt="Cormoran" />
+                    </a>
+                </h1>
+                <h2>Persistence framework</h2>
+                <h3 class="about-me"><a href="https://twitter.com/jaimegil" title="@jaimegil">@jaimegil</a></h3>
+                <h3><img src="images/cusl.png" alt="#cusl6" /></h3>
+            </div>
+
+            <div id="what" class="step slide" data-x="1300">
+                <h1><b>What</b> Cormoran is?</h1>
+            </div>
+
+            <div id="nothing-like-this" class="step slide" data-x="2600">
+                <h1>There is <b>nothing like</b> this?</h1>
+            </div>
+
+            <div id="like-this" class="step" data-x="2600" data-z="1000">
+                <ul>
+                    <li>
+                        <img src="images/sqlalchemy.png" alt="SQLAlchemy" />
+                    </li>
+                    <li>
+                        <img src="images/storm.png" alt="Storm" />
+                    </li>
+                    <li>
+                        <img src="images/django.png" alt="Django ORM" />
+                    </li>
+                </ul>
+            </div>
+
+            <div id="why" class="step slide" data-x="2600" data-y="1300" data-rotate="90">
+                <h1>So, <b>why</b> another ORM?</h1>
+            </div>
+
+            <div id="no-an-orm" class="step" data-x="2600" data-y="2600" data-z="1000" data-rotate="90">
+                <h1>Cormoran is <b>not only</b> an ORM</h1>
+            </div>
+
+            <div id="backend-development" class="step" data-x="2600" data-y="3900" data-z="2000" data-rotate="90">
+                <h1><b>Easy</b> backend development</h1>
+            </div>
+
+            <div id="restful" class="step" data-x="2600" data-y="5200" data-z="3000" data-rotate="90">
+                <h1><b>RESTful APIs</b> always <a href="https://github.com/jaimegildesagredo/cormoran-rest"><i>in mind</i></a></h1>
+            </div>
+
+            <div id="testable" class="step" data-x="2600" data-y="6500" data-z="4000" data-rotate="90">
+                <h1>Contributes to a <b>clean</b> and <b>testable</b> code</h1>
+            </div>
+
+            <div id="how" class="step slide" data-x="6500" data-y="6500">
+                <h1><b>How</b> is developed?</h1>
+            </div>
+
+            <div id="python" class="step" data-x="6500" data-y="6500" data-z="1000">
+                <h1>
+                    <img src="images/python.png" alt="Python" />
+                </h1>
+            </div>
+
+            <div id="testing" class="step" data-x="6500" data-y="6500" data-z="2000">
+                <h1><a href="http://readthedocs.org/docs/nose/en/latest/" title="nose">nose</a>, <a href="http://www.pydoubles.org/" title="PyDoubles">PyDoubles</a> and <a href="https://github.com/jonreid/PyHamcrest" title="PyHamcrest">PyHamcrest</a></h1>
+            </div>
+
+            <div id="github" class="step" data-x="6500" data-y="6500" data-z="3000">
+                <h1>
+                    <img src="images/github.png" alt="Github" />
+                </h1>
+            </div>
+
+            <div id="ci" class="step" data-x="6500" data-y="6500" data-z="4000">
+                <h1>
+                    <img src="images/travis.png" alt="Travis" />
+                </h1>
+            </div>
+
+            <div id="coding" class="step slide" data-x="7800" data-y="7800" data-rotate="90">
+                <h1>Sample TODO App</h1>
+                <h2>
+                    <a href="http://github.com/jaimegildesagredo/todo">Use the <b>source</b>, Luke!</a>
+                </h2>
+            </div>
+
+            <div id="the-task" class="step slide" data-x="7800" data-y="9100" data-rotate="90">
+                <h1>The Task</h1>
+
+<div class="highlight">
+<pre>
+<span class="kn">from</span> <span class="nn">cormoran</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="k">class</span> <span class="nc">Task</span><span class="p">(</span><span class="n">Persistent</span><span class="p">):</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">()</span>
+        <span class="n">done</span> <span class="o">=</span> <span class="n">BooleanField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</pre>
+</div>
+
+            </div>
+
+            <div id="getting-tasks" class="step slide" data-x="7000" data-y="7800" data-rotate="90">
+                <h1>Getting tasks</h1>
+
+<div class="highlight">
+<pre>
+<span class="kn">from</span> <span class="nn">tornado</span> <span class="kn">import</span> <span class="n">web</span>
+<span class="kn">from</span> <span class="nn">todo</span> <span class="kn">import</span> <span class="n">models</span>
+
+<span class="k">class</span> <span class="nc">IndexHandler</span><span class="p">(</span><span class="n">web</span><span class="o">.</span><span class="n">RequestHandler</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">store</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">store</span> <span class="o">=</span> <span class="n">store</span>
+
+        <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s">&#39;index.html&#39;</span><span class="p">,</span>
+                        <span class="n">tasks</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">store</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Task</span><span class="p">))</span>
+</pre>
+</div>
+
+            </div>
+
+            <div id="adding-tasks" class="step slide" data-x="7000" data-y="9100" data-rotate="90">
+                <h1>Adding tasks</h1>
+
+<div class="highlight">
+<pre>
+<span class="kn">import</span> <span class="n">httplib</span>
+
+<span class="k">class</span> <span class="nc">IndexHandler</span><span class="p">(</span><span class="n">web</span><span class="o">.</span><span class="n">RequestHandler</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">store</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Task</span><span class="p">(</span>
+                        <span class="n">body</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_argument</span><span class="p">(</span><span class="s">&#39;body&#39;</span><span class="p">)))</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">store</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">set_status</span><span class="p">(</span><span class="n">httplib</span><span class="o">.</span><span class="n">CREATED</span><span class="p">)</span>
+</pre>
+</div>
+
+        </div>
+
+        <div id="all-together" class="step slide" data-x="6200" data-y="7800" data-rotate="90">
+            <h1>Putting it all together</h1>
+
+<div class="highlight">
+<pre>
+<span class="kn">from</span> <span class="nn">tornado</span> <span class="kn">import</span> <span class="n">web</span>
+<span class="kn">from</span> <span class="nn">cormoran</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">todo</span> <span class="kn">import</span> <span class="n">handlers</span>
+
+<span class="k">def</span> <span class="nf">application</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+        <span class="n">sqlite</span> <span class="o">=</span> <span class="n">connect</span><span class="p">(</span><span class="s">&#39;sqlite:///tasks.sqlite&#39;</span><span class="p">)</span>
+        <span class="n">create_table</span><span class="p">(</span><span class="n">sqlite</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">web</span><span class="o">.</span><span class="n">Application</span><span class="p">([</span>
+                <span class="p">(</span><span class="s">r&#39;/&#39;</span><span class="p">,</span> <span class="n">handlers</span><span class="o">.</span><span class="n">IndexHandler</span><span class="p">,</span> <span class="nb">dict</span><span class="p">(</span><span class="n">store</span><span class="o">=</span><span class="n">Store</span><span class="p">(</span><span class="n">sqlite</span><span class="p">)</span><span class="p">))</span>
+        <span class="p">]</span><span class="p">)</span>
+</pre>
+</div>
+
+        </div>
+
+        <div id="html-css-javascript" class="step" data-x="6200" data-y="7800" data-z="1000" data-rotate="90">
+            <h1>A bit of <b>HTML</b>, <b>CSS</b> and <b>JavaScript</b>, and ...</h1>
+        </div>
+
+        <div id="the-app" class="step slide" data-x="5500" data-y="9800" data-z="2000" data-rotate="180">
+            <h1>The App!</h1>
+
+            <img src="images/todo-app.png" alt="TODO App" />
+        </div>
+
+        <script src="impress.js"></script>
+        <script>impress().init();</script>
+    </body>
+</html>
