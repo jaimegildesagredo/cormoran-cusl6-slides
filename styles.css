@@ -56,6 +56,10 @@ h2 {
     text-align: center;
 }
 
+#like-this li {
+    padding: 15px;
+}
+
 .highlight {
     margin-top: 50px;
 }
