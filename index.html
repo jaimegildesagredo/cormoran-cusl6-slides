@@ -114,50 +114,57 @@
                 </h2>
             </div>
 
-            <div id="models" class="step slide" data-x="7800" data-y="9100" data-rotate="90">
-                <h1>Task model</h1>
+            <div id="the-task" class="step slide" data-x="7800" data-y="9100" data-rotate="90">
+                <h1>The Task</h1>
 
-                <div class="highlight"><pre><span class="kn">from</span> <span class="nn">cormoran</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight">
+<pre>
+<span class="kn">from</span> <span class="nn">cormoran</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="k">class</span> <span class="nc">Task</span><span class="p">(</span><span class="n">Persistent</span><span class="p">):</span>
         <span class="n">body</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">()</span>
-        <span class="n">done</span> <span class="o">=</span> <span class="n">BooleanField</span><span class="p">()</span>
-</pre></div>
+        <span class="n">done</span> <span class="o">=</span> <span class="n">BooleanField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</pre>
+</div>
 
             </div>
 
-            <div id="get-tasks" class="step slide" data-x="7000" data-y="7800" data-rotate="90">
-                <h1>Get tasks</h1>
+            <div id="getting-tasks" class="step slide" data-x="7000" data-y="7800" data-rotate="90">
+                <h1>Getting tasks</h1>
 
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">tornado</span> <span class="kn">import</span> <span class="n">web</span>
+<div class="highlight">
+<pre>
+<span class="kn">from</span> <span class="nn">tornado</span> <span class="kn">import</span> <span class="n">web</span>
 <span class="kn">from</span> <span class="nn">todo</span> <span class="kn">import</span> <span class="n">models</span>
 
-<span class="k">class</span> <span class="nc">TaskHandler</span><span class="p">(</span><span class="n">web</span><span class="o">.</span><span class="n">RequestHandler</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">IndexHandler</span><span class="p">(</span><span class="n">web</span><span class="o">.</span><span class="n">RequestHandler</span><span class="p">):</span>
         <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">store</span><span class="p">):</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">store</span> <span class="o">=</span> <span class="n">store</span>
 
         <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s">&#39;index.html&#39;</span><span class="p">,</span>
                         <span class="n">tasks</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">store</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Task</span><span class="p">))</span>
-</pre></div>
+</pre>
+</div>
 
                 </div>
 
-            <div id="create-task" class="step slide" data-x="7000" data-y="9100" data-rotate="90">
-                <h1>Create a task</h1>
+            <div id="adding-task" class="step slide" data-x="7000" data-y="9100" data-rotate="90">
+                <h1>Adding tasks</h1>
 
-<div class="highlight"><pre>
-<span class="k">class</span> <span class="nc">TaskHandler</span><span class="p">(</span><span class="n">web</span><span class="o">.</span><span class="n">RequestHandler</span><span class="p">):</span>
+<div class="highlight">
+<pre>
+<span class="kn">import</span> <span class="n">httplib</span>
+
+<span class="k">class</span> <span class="nc">IndexHandler</span><span class="p">(</span><span class="n">web</span><span class="o">.</span><span class="n">RequestHandler</span><span class="p">):</span>
         <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">store</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Task</span><span class="p">(</span>
-                        <span class="n">body</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_argument</span><span class="p">(</span><span class="s">&#39;body&#39;</span><span class="p">),</span>
-                        <span class="n">done</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-                <span class="p">)</span>
+                        <span class="n">body</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_argument</span><span class="p">(</span><span class="s">&#39;body&#39;</span><span class="p">)))</span>
 
                 <span class="bp">self</span><span class="o">.</span><span class="n">store</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
-
-                <span class="bp">self</span><span class="o">.</span><span class="n">redirect</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">)</span>
-</pre></div>
+                <span class="bp">self</span><span class="o">.</span><span class="n">set_status</span><span class="p">(</span><span class="n">httplib</span><span class="o">.</span><span class="n">CREATED</span><span class="p">)</span>
+</pre>
+</div>
 
             </div>
 
